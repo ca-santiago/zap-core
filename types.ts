@@ -1,0 +1,30 @@
+export type Nullable<T> = T | null;
+
+export interface FileSaveResult {
+  URI: string;
+}
+
+export interface IFileRepo {
+  save(file: Buffer, name: string, ext: string): FileSaveResult;
+  exist(name: string, ext: string): boolean;
+}
+
+
+
+export type Left<T> = { tag: "left"; value: T}; 
+
+export type Right<T> = { tag: "right"; value: T };
+
+export type Either<L, R> = Left<L> | Right<R>;
+
+export function left<t>(value: t): Left<t>{
+	return {tag: 'left', value } 
+}
+
+export function right<t>(value: t): Right<t>{
+	return {tag: 'right', value } 
+}
+
+export function CombineEitherResults<T>(args: Either<string[], any>[]): Either<string[], T>{
+		return args.find(theEither => theEither.tag == 'left');
+}
