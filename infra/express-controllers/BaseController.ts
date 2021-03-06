@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-import { Result } from "../core/Result";
-import { UseCasesErrors } from "../useCases/Errors";
+import { Result } from "../../core/Result";
+import { UseCasesErrors } from "../../useCases/Errors";
 
 export abstract class BaseController {
   protected abstract executeImpl(
