@@ -1,5 +1,5 @@
 import * as amqp from "amqplib";
-import { ConsumerCallback } from "./types";
+import { ConsumerCallback } from "../../types";
 
 let MQConn: amqp.Connection;
 

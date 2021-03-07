@@ -1,8 +1,5 @@
 import { S3 } from "aws-sdk";
-import {
-  IOBjectStorageService,
-  MakeObjectStorageService,
-} from "../IObjectStorage";
+import { IOBjectStorageServices, MakeObjectStorageService } from "../types";
 
 const makeSaveFileS3: MakeObjectStorageService = (config: {
   accessKey: string;
@@ -10,7 +7,7 @@ const makeSaveFileS3: MakeObjectStorageService = (config: {
   region: string;
   BucketName: string;
   endpoint?: string;
-}): IOBjectStorageService => {
+}): IOBjectStorageServices => {
   const { region, BucketName, accessKey, secretKey, endpoint } = config;
 
   let currRegion = region ? region : "sa-east-1";
